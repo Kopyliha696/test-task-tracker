@@ -1,15 +1,15 @@
 export enum TaskPriority {
-  None,
-  Low,
-  Medium,
-  High,
+  None = 'None',
+  Low = 'Low',
+  Medium = 'Medium',
+  High = 'High',
 }
 
 export enum TaskStatus {
-  None,
-  ToDo,
-  InProgress,
-  Done,
+  None = 'None',
+  ToDo = 'To Do',
+  InProgress = 'In Progress',
+  Done = 'Done',
 }
 
 export interface Task {

@@ -1,10 +1,41 @@
 <div class="app-task__container">
-<div class="app-task__header">
-  <h1>{{task.taskName}}</h1>
-  <div class="app-task__header-buttons">
-    <button (click)="goToTasks()">go back</button>
-    <button>edit</button>
-    <button>delete</button>
+  <div class="app-task__header">
+    <h1>{{task.taskName}}</h1>
+    <div class="app-task__header-buttons">
+      <button mat-icon-button (click)="goToTasks()">
+        <mat-icon>home</mat-icon>
+      </button>
+      <button mat-icon-button (click)="openEditTaskDialog(task)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteTask()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="app-task__body">
+    <div class="app-task__task-field">
+      <span class="app-task__task-field-title">Due date</span>
+      <span>{{task.dueDate | date}}</span>
+    </div>
+    <div class="app-task__task-field">
+      <span class="app-task__task-field-title">Priority</span>
+      <span>{{task.priority}}</span>
+    </div>
+    <div class="app-task__task-field">
+      <span class="app-task__task-field-title">Status</span>
+      <span>{{task.status}}</span>
+    </div>
+    <div class="app-task__task-field">
+      <span class="app-task__task-field-title">Assignee</span>
+      <span>{{task.assignee}}</span>
+    </div>
+    <div class="app-task__task-field app-task__task-field-description-container">
+      <span class="app-task__task-field-title">Description:</span>
+      <div class="app-task__task-field-description">
+        {{task.description}}
+      </div>
+    </div>
   </div>
 </div>
-</div>
+

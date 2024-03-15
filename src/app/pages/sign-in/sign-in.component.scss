@@ -16,14 +16,22 @@
     padding: 40px;
   }
 
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
   &__email {
     padding: 5px 10px;
-    margin-bottom: 10px;
     border-radius: 4px;
+    width: 50%;
   }
 
   &__button {
     display: inline-block;
+    width: 50%;
   }
 }
 

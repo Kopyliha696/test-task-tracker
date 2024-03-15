@@ -1,5 +1,6 @@
 <h2 mat-dialog-title>{{title}}</h2>
-<mat-dialog-content [formGroup]="form">
+
+<mat-dialog-content class="app-dialog__content" [formGroup]="form">
   <mat-form-field class="app-dialog__name" color="accent">
     <mat-label>Task name</mat-label>
     <input formControlName="taskName" matInput placeholder="Edit task name">
@@ -18,24 +19,23 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="app-dialog__priority">
     <mat-label>Priority</mat-label>
     <mat-select formControlName="priority">
       <mat-option *ngFor="let priority of priorities" [value]="priority">
-        {{getTaskPriorityName(priority)}}
+        {{priority}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="app-dialog__status">
     <mat-label>Status</mat-label>
     <mat-select formControlName="status">
       <mat-option *ngFor="let status of statuses" [value]="status">
-        {{getTaskStatusName(status)}}
+        {{status}}
       </mat-option>
     </mat-select>
   </mat-form-field>
-
 
   <mat-form-field class="app-dialog__description" color="accent">
     <mat-label>Task description</mat-label>
@@ -43,6 +43,7 @@
   </mat-form-field>
 
 </mat-dialog-content>
+
 <mat-dialog-actions align="end">
   <button mat-button (click)="cancel()">Cancel</button>
   <button mat-button (click)="submit()">Save</button>

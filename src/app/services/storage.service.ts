@@ -11,8 +11,8 @@ export class StorageService {
    *
    * @param key object key
    */
-  get(key: string) {
-    const item = localStorage.getItem(key);
+  get(key: string): string {
+    const item: string | null = localStorage.getItem(key);
 
     if (item !== null) {
       return item;
@@ -27,7 +27,7 @@ export class StorageService {
    * @param key object key
    * @param data data to save
    */
-  set(key: string, data: any) {
+  set<T>(key: string, data: T): void {
     localStorage.setItem(key, JSON.stringify(data));
   }
 }

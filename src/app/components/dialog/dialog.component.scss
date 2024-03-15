@@ -1,5 +1,10 @@
 .app-dialog {
   &:host {
+    width: 1000px;
+  }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
   }
 }

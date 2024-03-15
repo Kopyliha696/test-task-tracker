@@ -14,11 +14,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+
 import { EnumValues } from 'enum-values';
 import { nanoid } from 'nanoid';
 import { Task, TaskPriority, TaskStatus } from '../../types/task';
-import { getTaskPriorityName } from '../../utils/get-task-priority-name';
-import { getTaskStatusName } from '../../utils/get-task-status-name';
 
 @Component({
   selector: 'app-dialog',
@@ -44,8 +43,8 @@ import { getTaskStatusName } from '../../utils/get-task-status-name';
 export class DialogComponent {
   @HostBinding() className: string = 'app-dialog';
 
-  priorities: number[] = EnumValues.getValues(TaskPriority);
-  statuses: number[] = EnumValues.getValues(TaskStatus);
+  priorities: string[] = EnumValues.getValues(TaskPriority);
+  statuses: string[] = EnumValues.getValues(TaskStatus);
   title: string = 'New task';
   readonly form: FormGroup;
 
@@ -68,21 +67,13 @@ export class DialogComponent {
     });
   }
 
-  getTaskPriorityName(priority: TaskPriority): string {
-    return getTaskPriorityName(priority);
-  }
-
-  getTaskStatusName(status: TaskStatus): string {
-    return getTaskStatusName(status);
-  }
-
   submit(): void {
     if (this.form.valid) {
       if (this.data === null) {
         const id: string = nanoid();
         this.dialogRef.close({...this.form.value, id});
       } else {
-        this.dialogRef.close({...this.form.value, id: this.data.id})
+        this.dialogRef.close({...this.form.value, id: this.data.id});
       }
     }
   }

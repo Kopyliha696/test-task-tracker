@@ -2,6 +2,7 @@ import { Component, HostBinding } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
+
 import { StorageService } from '../../services/storage.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { StorageService } from '../../services/storage.service';
   standalone: true,
     imports: [
       ReactiveFormsModule,
-      MatButtonModule
+      MatButtonModule,
     ],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss',
@@ -24,12 +25,12 @@ export class SignInComponent {
 
   constructor(private router: Router, private storage: StorageService) {}
 
-  onClick() {
-    if (this.emailControl.invalid) {
+  onClick(): void {
+    if (this.emailControl.invalid || this.emailControl.value === null) {
       return;
     }
 
-    this.storage.set('email', this.emailControl.value);
+    this.storage.set<string>('email', this.emailControl.value);
     this.router.navigateByUrl('/tasks');
   }
 }
