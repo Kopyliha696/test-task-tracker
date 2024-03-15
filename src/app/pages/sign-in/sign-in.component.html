@@ -1,0 +1,16 @@
+<div class="app-sign-in__container">
+  <div class="app-sign-in__header">
+    <h1>Добро пожаловать в мини-тасктрекер</h1>
+    <h3>для Effective Mobile</h3>
+  </div>
+  <label for="email"></label>
+  <input class="app-sign-in__email" type="email" id="email" [formControl]="emailControl" placeholder="Чтобы начать, напишите свой email">
+  <button
+    class="app-sign-in__button"
+    mat-fab
+    extended
+    color="accent" (click)="onClick()">
+    Поехали!
+  </button>
+</div>
+

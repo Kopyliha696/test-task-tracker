@@ -1,0 +1,50 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field class="app-dialog__name" color="accent">
+    <mat-label>Task name</mat-label>
+    <input formControlName="taskName" matInput placeholder="Edit task name">
+  </mat-form-field>
+
+  <mat-form-field class="app-dialog__assignee" color="accent">
+    <mat-label>Assignee</mat-label>
+    <input formControlName="assignee" matInput placeholder="Edit task name">
+  </mat-form-field>
+
+  <mat-form-field class="app-dialog__due-date">
+    <mat-label>Due date</mat-label>
+    <input formControlName="dueDate" matInput [matDatepicker]="picker">
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Priority</mat-label>
+    <mat-select formControlName="priority">
+      <mat-option *ngFor="let priority of priorities" [value]="priority">
+        {{getTaskPriorityName(priority)}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select formControlName="status">
+      <mat-option *ngFor="let status of statuses" [value]="status">
+        {{getTaskStatusName(status)}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field class="app-dialog__description" color="accent">
+    <mat-label>Task description</mat-label>
+    <textarea formControlName="description" matInput placeholder="Task description"></textarea>
+  </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button (click)="submit()">Save</button>
+</mat-dialog-actions>
+

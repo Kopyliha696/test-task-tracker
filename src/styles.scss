@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #424242;
+}
+
+*:not(mat-icon) {
+  font-family: Montserrat, sans-serif !important;
+}
+
+h1 {
+  font-size: 2em !important;
+  font-weight: 600 !important;
+  color: aliceblue;
+}
+
+h3 {
+  font-size: 1.17em !important;
+  font-weight: 400 !important;
+}

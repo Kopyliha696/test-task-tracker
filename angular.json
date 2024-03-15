@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "test-mini-task-tracker": {
+    "test-task-tracker": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/test-mini-task-tracker",
+            "outputPath": "dist/test-task-tracker",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -30,6 +30,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
             ],
             "scripts": [],
@@ -67,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "test-mini-task-tracker:build:production"
+              "buildTarget": "test-task-tracker:build:production"
             },
             "development": {
-              "buildTarget": "test-mini-task-tracker:build:development"
+              "buildTarget": "test-task-tracker:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "test-mini-task-tracker:build"
+            "buildTarget": "test-task-tracker:build"
           }
         },
         "test": {
@@ -95,6 +96,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
             ],
             "scripts": []
